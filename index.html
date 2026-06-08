@@ -7,7 +7,7 @@
 
 </head>
 <body>
-<header class="resume-header">
+<header class="resume-header" id="home">
     <h1>Taylor Rodgers</h1>
     <p class="current-job-title">Regional Tier IV Engineer | NIWC PAC</p>
     
@@ -19,18 +19,25 @@
     </address>
 </header>
 
-<!-- add a section here with page anchors to navigate to different sections on the same page
- 1. add IDs to each section somehow
- 2. insert actual nav section -->
+<nav class="resume-nav">
+    <ul>
+        <li><a href="#home">Top</a></li>
+        <li><a href="#experience">Work Experience</a></li>
+        <li><a href="#navy">Navy Service</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+    </ul>
+</nav>
 
-<section class="work-experience">
+<section class="work-experience" id="experience">
     <h2>Work Experience</h2>
 
     <!-- First Job Entry -->
     <article class="job-entry">
         <h3>Subsidium</h3>
-        <p><strong>NIWC Pacific Regional Tier IV</strong></p>
+        <p class="job-title">NIWC Pacific Regional Tier IV</p>
         <p>Naples, Italy | March 2024 - March 2025</p>
+        <p class="job-details"> Naples, Italy | <time datetime="2024-03-2025-03">March 2024 - March 2025</time></p>
         <ul class="job-entry-list">
             <li>Responsible for coordinating engineering efforts between NTCS Naples and all regional LNSCs, remote sites and satellites locations.</li>
             <li>Provide coordination between PEO Digital and site leadership and ensure customer satisfaction with services being provided, bridging communication gaps and representing Europe region in all associated meetings, engineering calls and RFC boards.</li>
@@ -41,8 +48,8 @@
     <!-- Second Job Entry -->
     <article class="job-entry">
         <h3>Dynetics, A Leidos Company</h3>
-        <p><strong>Senior Systems Engineer</strong></p>
-        <p>Huntsville, AL | April 2023 - June 2024</p>
+        <p class="job-title">Senior Systems Engineer</p>
+        <p class="job-details"> Huntsville, AL | <time datetime="2023-04-2024-06">April 2023 - June 2024</time></p>
         <ul class="job-entry-list">
             <li>Senior systems engineer responsible for maintaining multiple unique suites supporting government contracts across Aerospace, Missile Defense, Weapons Development and Warfare Analysis on a global scale.</li>
             <li>Responsible for system hardening, software integration, suite automation and user management and CISCO ISE engine maintenance.</li>
@@ -54,8 +61,8 @@
     <!-- Third Job Entry -->
      <article class="job-entry">
         <h3>Lockheed Martin | C2BMC Program Subcontractor</h3>
-        <p><strong>Software Integrator </strong></p>
-        <p>Huntsville, AL | June 2022 - February 2023</p>
+        <p class="job-title">Software Integrator</p>
+        <p class="job-details"> Huntsville, AL | <time datetime="2022-11/2023-06">November 2022 - June 2023 </time></p>
         <ul class="job-entry-list">
             <li>Worked within Huntsville Lab virtual environment to ensure 100% uptime for infrastructure services to the development team and operational floor for scenario runs</li>
             <li>Integrated all software suites into VMWare environment, maintained backups and snapshots in the event of necessary rollbacks</li>
@@ -80,25 +87,26 @@
         </ul>
     </article>
 
-<div class="navy-metadata-container">
+<div class="navy-metadata-container" id="navy">
     <!-- Fifth Job Entry, US Navy Section -->
      <article class="navy-section">
         <h3> United States Navy </h3>
         <p class="navy-rate"><strong> Information Systems Technician First Class </strong></p>
         <p class="navy-instructions">Click a duty station below for more information on my role there </p>
-        <ul class="duty-station-list">
+        <ol class="duty-station-list">
+            <!-- Need to update this to include links to seperate pages of the website where I will include information about each duty station -->
             <li> <a href="https://www.navy.mil" target="_blank"> </a>USS Mustin, DDG 89</li>
             <li> <a href="https://www.navy.mil" target="_blank"></a>Special U.S. Liaison Activity, Korea (SUSLAK) </li>
             <li> <a href="https://www.navy.mil" target="_blank"></a>Naval Telecommunication Station (NCTS) Far East </li>
             
-        </ul>
+        </ol>
     </article>
 </div> 
 </section>
             
 
 <div class="resume-metadata-container">
-<section class="certifications">
+<section class="certifications" id="certs">
     <h2>Certifications</h2>
     <ul class="resume-list">
         <li>VMWare Certified Professional - Data Center Virtualization (VCP-DCV) | 2021</li>
@@ -108,7 +116,7 @@
     </ul>
 </section>
 
-<section class="education">
+<section class="education" id="education">
     <h2>Education</h2>
     <ul class="resume-list">
         <li>Computer Science Bachelor Degree | Southern New Hampshire University | 2026 </li>
@@ -117,7 +125,7 @@
     </ul>
 </section>
 
-<section class="skills">
+<section class="skills" id="skills">
     <h2>Skills</h2>
     <ul class="resume-list">
         <li>VMWare ESXi, vCenter, vRealize Automation, vRealize Operations</li>

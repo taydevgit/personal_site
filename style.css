@@ -1,0 +1,8 @@
+resume-nav {
+    position: fixed;   /* Locks the element to the viewport */
+    top: 0;            /* Sticks it to the absolute top edge */
+    left: 0;           /* Aligns it to the left edge */
+    width: 100%;       /* Makes it stretch completely across the screen */
+    z-index: 1000;     /* Ensures it floats on top of your text/images */
+    background-color: #ffffff; /* Gives it a background so text underneath doesn't bleed through */
+}
