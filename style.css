@@ -57,6 +57,16 @@ h1, h2, h3 {
     letter-spacing: 0.05em;
 }
 
+/* Target the company name heading inside your job header */
+.job-header h3 {
+    margin-bottom: 0;   /* Strips the bottom spacing from the company name */
+}
+
+/* Target the job title paragraph inside your job header */
+.job-header .job-title {
+    margin-top: 0;      /* Strips the top spacing from the job title */
+}
+
 /* Add breathing room to your sections */
 section {
     margin-bottom: 60px;
@@ -143,4 +153,30 @@ section {
 
 .contact-info p:last-child {
     margin-bottom: 0;
+}
+
+.job-entry-list {
+    list-style: none; /* Strips default bullets */
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.job-entry-list li {
+    position: relative;
+    padding-left: 24px; /* Creates explicit horizontal space for the icon */
+    margin-bottom: 8px;
+    color: #a3a3a3;
+}
+
+/* Inject and scale the icon image */
+.job-entry-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;                  /* Vertically aligns the icon with the first line of text */
+    width: 14px;               /* Forces the massive image down to icon size */
+    height: 14px;              /* Forces matching height */
+    background-image: url("code-simple1.svg");
+    background-size: contain;  /* Scale the image down to fit the 14x14 box exactly */
+    background-repeat: no-repeat;
 }
