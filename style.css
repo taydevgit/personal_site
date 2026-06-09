@@ -32,17 +32,10 @@ a:hover {
     text-decoration: none;      /* Keeps the line clean without an underline */
 }
 
-.hero-image-side {
-    flex-basis: 20%;
-    height: 100%;
-    background-image: url("your-new-front-page-image.jpg");
-    background-size: cover;
-    background-position: center;
-    border-right: 1px solid #262626; /* Dark, sharp minimalist border divider */
-}
+
 
 .resume-content-side {
-    flex-basis: 80%;
+    flex-basis: 90%;
     height: 100%;
     overflow-y: scroll; /* Only this half of the screen will scroll */
     padding: 40px;
@@ -72,6 +65,29 @@ section {
     margin-bottom: 60px;
     border-bottom: 1px solid #1f1f1f; /* Clean subtle divider lines between sections */
     padding-bottom: 40px;
+}
+
+/* Ensure the parent container is ready to scale content relative to its borders */
+.hero-image-side {
+    flex-basis: 10%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;             /* Clips any video overhang beyond the 50% width line */
+    background-color: #050505;    /* Matte space black fallback if the video takes a millisecond to load */
+    border-right: 1px solid #262626;
+}
+
+/* Force the video to scale like a background image */
+.space-bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%); /* Keeps the video perfectly centered in the left frame */
+    object-fit: cover;                 /* Stretches the video cleanly without distorting pixel aspect ratio */
 }
 
 /* ==========================================================================
@@ -176,7 +192,8 @@ section {
     top: 4px;                  /* Vertically aligns the icon with the first line of text */
     width: 14px;               /* Forces the massive image down to icon size */
     height: 14px;              /* Forces matching height */
-    background-image: url("code-simple1.svg");
+    background-image: url("code-simple2.svg");
     background-size: contain;  /* Scale the image down to fit the 14x14 box exactly */
     background-repeat: no-repeat;
 }
+
