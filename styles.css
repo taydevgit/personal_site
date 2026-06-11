@@ -424,6 +424,31 @@ body {
     color: #d35400;
 }
 
+/* NEW: Layout wrapper that sits the logos and download button side-by-side */
+.footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem; /* Distinct separation space between the logo cluster and the button */
+}
+
+/* NEW: Alignment grid for the images */
+.cert-logos-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Space between each individual logo */
+}
+
+/* NEW: Controls sizing and prevents image blowing out the footer size */
+.cert-logo {
+    height: 38px;       /* Constrains the height uniformly so different shapes look balanced */
+    width: auto;        /* Allows the width to scale proportionally to prevent distortion */
+    object-fit: contain;
+    opacity: 0.85;      /* Subtle blend into the dark theme */
+    transition: opacity 0.15s ease;
+}
+.cert-logo:hover {
+    opacity: 1;         /* Lights up cleanly on hover */
+}
 .btn-download-footer {
     background-color: #d35400;
     color: #ffffff;
