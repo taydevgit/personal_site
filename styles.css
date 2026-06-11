@@ -1,0 +1,533 @@
+/* ==========================================================================
+   Global Reset & Page Box Rules
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* File Directory Path Linking */
+    background-image: url("monochrome_clouds.jpg");
+    
+    /* Box Mechanics: Lock the image layout tightly to the viewport */
+    background-attachment: fixed; /* Freezes the image in place so content scrolls over it */
+    background-position: center;  /* Centers the image asset mathematically on the axis */
+    background-repeat: no-repeat; /* Prevents the image from duplicating/tiling awkwardly */
+    background-size: cover;       /* Dynamically stretches or shrinks the image to fill 100% of the screen width and height without distortion */
+
+    /* Core typography and baseline configurations */
+    background-color: #121212;    /* Fallback color while the image asset loads */
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Header Layout & Interaction States
+   ========================================================================== */
+.site-header {
+    display: flex;                  
+    justify-content: space-between; 
+    align-items: center;            
+    padding: 1rem 2rem;             
+    background-color: #1a1a1a;      
+    border-bottom: 1px solid #2d2d2d; 
+}
+
+.header-left {
+    margin: 0;                      
+    font-weight: 600;
+    text-transform: uppercase; 
+    letter-spacing: 1px;       
+    line-height: 1.0;          
+}
+
+.my-name {
+    font-size: 2.5rem;        
+    font-weight: 800;        
+    color: #ffffff;         
+    margin: 0;              
+    margin-bottom: 0.2rem;   
+}
+
+.job-title {
+    font-size: 1rem;     
+    font-weight: 400;      
+    color: #e0e0e0;       
+    line-height: 1.2;      
+    margin: 0;            
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;         
+    align-items: flex-end;          
+    gap: 0.5rem;                    
+}
+
+.header-right .location {
+    color: #e0e0e0;                 
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header-right a {
+    color: #e0e0e0;                 
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.15s ease, text-shadow 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header-right i {
+    transition: color 0.15s ease, text-shadow 0.15s ease;
+}
+
+.header-right a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(211, 84, 0, 0.8), 
+                 0 0 20px rgba(211, 84, 0, 0.4);
+}
+
+.header-right a:hover i {
+    color: #d35400;
+    text-shadow: 0 0 8px rgba(211, 84, 0, 0.9),
+                 0 0 20px rgba(211, 84, 0, 0.5);
+}
+
+/* ==========================================================================
+   Main Content Vertical Stack Layout
+   ========================================================================== */
+.main-content-container {
+    display: flex;
+    flex-direction: column;     
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 4rem 2rem 8rem 2rem; 
+    /* CHANGED: Add the 2rem spacing here instead of between the inner cards */
+    gap: 2rem;                     
+}
+
+.resume-row {
+    display: flex;
+    flex-direction: row;        
+    width: 100%;
+}
+
+/* Left Track Space Container */
+.row-timeline-track {
+    width: 110px;               
+    position: relative;         
+    flex-shrink: 0;
+    margin-right: 2rem;         
+    
+    /* NEW: Forces all child elements to center vertically inside the track height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    align-items: flex-start;    
+}
+
+/* The structural track line segment remains anchored to the left */
+.track-line {
+    position: absolute;
+    left: 0;
+    /* CHANGED: Extends the line upward and downward to seamlessly bridge the 2rem row gaps */
+    top: -1rem;
+    bottom: -1rem;
+    width: 4px;
+    background-color: #2d2d2d;  
+    transition: background-color 0.25s ease;
+}
+
+/* NEW: Combined Date Layout Block */
+/* Combined Date Layout Block Wrapper */
+.card-date {
+    display: flex;
+    flex-direction: column;     
+    gap: 0.2rem;                
+    margin: 0;                  
+    padding-left: 20px;         
+    
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #d35400;             
+    white-space: nowrap;
+    
+    opacity: 0;                 
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: scale(0.9);      
+}
+
+/* ==========================================================================
+   Strict Date and Transition Arrow Layout
+   ========================================================================== */
+
+/* Target the first line in HTML (Older Start Date) */
+.card-date span:nth-child(2) {
+    order: 3;                   /* Push to the very bottom position */
+}
+
+/* Target the second line in HTML (Newer End Date) */
+.card-date span:nth-child(1) {
+    order: 1;                   /* Keep at the very top position */
+}
+
+/* Position the generated arrow perfectly between the two dates */
+.card-date::after {
+    content: "▲";               
+    display: block;
+    order: 2;                   /* Lock right into the middle slot */
+    text-align: center;         
+    font-size: 0.7rem;         
+    color: #d35400;             
+    margin: 0.1rem 0;           /* Balanced top and bottom margin spacing for the transition look */
+    line-height: 1;
+}
+
+/* Absolute vertical alignments matching top/bottom limits of the card */
+.date-start {
+    top: 2rem;                  
+    transform: translateY(-50%) scale(0.9);
+}
+
+.date-end {
+    bottom: 2rem;               
+    transform: translateY(50%) scale(0.9);
+}
+
+/* ==========================================================================
+   Cross-Box Interaction Styling (Hover Effects)
+   ========================================================================== */
+.resume-row:hover .track-line {
+    background-color: #d35400;  
+}
+
+.resume-row:hover .card-date {
+    opacity: 1;                 
+    transform: scale(1.05);     /* Smoothly scales the entire block up when revealed */
+}
+.resume-row:hover .date-start {
+    transform: translateY(-50%) scale(1.15); 
+}
+
+.resume-row:hover .date-end {
+    transform: translateY(50%) scale(1.15); 
+}
+
+/* ==========================================================================
+   Job Cards Portfolio Component
+   ========================================================================== */
+.job-card {
+    background-color: #1a1a1a;
+    border: 1px solid #2d2d2d;
+    border-radius: 6px;
+    padding: 2rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    /* REMOVED: margin-bottom: 2rem; */
+    width: 100%;
+}
+
+.job-card:hover {
+    border-color: #d35400;      
+    transform: translateY(-2px);
+}
+
+.job-card-header h2 {
+    font-size: 1.6rem;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+}
+
+.job-card-header h3 {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.job-card-location {
+    display: block;
+    font-size: 0.9rem;
+    color: #666666;
+    margin-bottom: 1.5rem;
+}
+
+.job-card-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-pill {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-family: monospace;
+}
+
+/* ==========================================================================
+   Full-Screen Native Modal Structure
+   ========================================================================== */
+.full-screen-job-modal {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    background-color: #121212; 
+    color: #e0e0e0;
+    border: none;
+    padding: 0;
+}
+
+.full-screen-job-modal::backdrop {
+    background-color: rgba(18, 18, 18, 0.98); 
+}
+
+.modal-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    position: relative; 
+}
+
+/* Minimalist Close Control Button */
+.btn-close-modal {
+    position: absolute;
+    top: 3rem;
+    right: 2rem;
+    
+    /* Stripping structural box styles */
+    background: none;           /* Removes the solid dark background tile */
+    border: none;               /* Eliminates the 1px solid border outline entirely */
+    padding: 0;                 /* Drops padding box bounds so only the character sits here */
+    
+    /* Typography adjustments for the raw X shape */
+    color: #a0a0a0;
+    cursor: pointer;
+    font-size: 1.8rem;          /* Scales up the character size to remain an easy target */
+    font-weight: 300;           /* Clean, thin character weight */
+    line-height: 1;
+    
+    transition: color 0.15s ease, text-shadow 0.15s ease;
+}
+
+/* Interaction state: Hovering over the standalone X shape */
+.btn-close-modal:hover {
+    color: #ffffff;
+    border: none;               /* Explicitly keeps border dead during active states */
+    background: none;           /* Explicitly keeps background clear during active states */
+    
+    /* Applies the identical dark orange illumination profile from the rest of the site */
+    text-shadow: 0 0 8px rgba(211, 84, 0, 0.8), 
+                 0 0 20px rgba(211, 84, 0, 0.4);
+}
+
+.modal-header h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.modal-header h2 {
+    font-size: 1.3rem;
+    color: #a0a0a0;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.accent-orange {
+    color: #d35400;
+}
+
+.modal-body-content h3 {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #2d2d2d;
+    padding-bottom: 0.5rem;
+}
+
+.modal-body-content ul {
+    list-style: none; 
+}
+
+.modal-body-content li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #c0c0c0;
+}
+
+/* Custom asset bullet design using local SVG file */
+.modal-body-content li::before {
+    content: "";                /* Clear out the old "↳" text string completely */
+    position: absolute;
+    left: 0;
+    top: 0.3rem;                /* Adjusts vertical alignment to match line-height centers */
+    
+    /* Box Mechanics: Set explicit dimensions for the SVG asset */
+    width: 14px;                
+    height: 14px;
+    
+    /* File Directory Path Linking */
+    background-image: url("code-simple1.svg");
+    background-repeat: no-repeat;
+    background-size: contain;   /* Scales the SVG vector asset cleanly inside the 14x14px box */
+    background-position: center;
+}
+
+/* ==========================================================================
+   Fixed Bottom Bar Layout
+   ========================================================================== */
+.bottom-action-bar {
+    position: fixed;            
+    bottom: 0;                  
+    left: 0;                    
+    width: 100%;                
+    height: 60px;               
+    display: flex;              
+    justify-content: space-between; 
+    align-items: center;        
+    padding: 0 2rem;
+    background-color: #1a1a1a;  
+    border-top: 1px solid #2d2d2d;
+    z-index: 999;               
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;                
+}
+
+.footer-links a {
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;      
+    transition: color 0.15s ease;
+    display: inline-flex;       
+    align-items: center;        
+    gap: 0.5rem;                
+}
+
+.footer-links a:hover {
+    color: #ffffff;             
+    text-shadow: 0 0 8px rgba(211, 84, 0, 0.8), 
+                 0 0 20px rgba(211, 84, 0, 0.4);
+}
+
+.footer-links a:hover i {
+    color: #d35400;             
+    text-shadow: 0 0 8px rgba(211, 84, 0, 0.9),
+                 0 0 20px rgba(211, 84, 0, 0.5);
+}
+
+.btn-download-footer {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;       
+    background-color: #d35400;   
+    color: #ffffff;              
+    border-radius: 6px;          
+    font-size: 0.9rem;
+    font-weight: 700;              
+    letter-spacing: 0.5px;
+    text-decoration: none;       
+    transition: background-color 0.15s ease; 
+}
+
+.btn-download-footer:hover {
+    background-color: #e67e22;   
+    color: #ffffff;              
+    box-shadow: 0 0 12px rgba(230, 126, 34, 0.6),
+                0 0 25px rgba(230, 126, 34, 0.3);
+}
+
+/* ==========================================================================
+   Responsive Media Queries (Mobile & Tablet Optimization)
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 1. Add breathing room to the main wrapper */
+    .main-content-container {
+        padding: 2rem 1rem 6rem 1rem;
+        gap: 1.5rem;
+    }
+
+    /* 2. Convert the horizontal row into a vertical stack */
+    .resume-row {
+        flex-direction: column; 
+        gap: 0.5rem;
+    }
+
+    /* 3. Re-purpose the timeline track space */
+    .row-timeline-track {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        align-items: flex-start; /* Align elements to the left margin instead of center */
+        padding-left: 0;
+    }
+
+    /* 4. Hide the vertical line on mobile since items are stacked */
+    .track-line {
+        display: none; 
+    }
+
+    /* 5. Force dates to be permanently visible on mobile (since hover states don't exist on touch screens) */
+    .card-date {
+        position: static;      /* Take it out of absolute floating space */
+        opacity: 1;            /* Make it completely visible */
+        transform: scale(1);   /* Reset scale factor */
+        padding-left: 0;
+        flex-direction: row;   /* Put dates side-by-side on mobile for better space utilization */
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+    }
+
+    /* 6. Adjust the arrow orientation to point down, indicating the card below it */
+    .card-date::after {
+        content: "▼";          
+        order: 2;              /* Place it cleanly between the two dates */
+        margin: 0 0.2rem;
+    }
+    
+    /* Correct the text node orders to read chronologically left-to-right on mobile */
+    .card-date span:nth-child(1) { order: 1; } /* End date */
+    .card-date span:nth-child(2) { order: 3; } /* Start date */
+
+    /* 7. Allow the job card to take up full screen width */
+    .job-card {
+        padding: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    /* 8. Scale down header text so it doesn't wrap awkwardly */
+    .my-name {
+        font-size: 1.8rem;
+    }
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .header-right {
+        align-items: flex-start;
+        width: 100%;
+    }
+}
