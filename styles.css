@@ -79,7 +79,6 @@ body {
     color: #d35400;
 }
 
-/* Inline Email Copy Button */
 .btn-copy-email {
     background: none;
     border: none;
@@ -88,12 +87,19 @@ body {
     font-size: 1rem;
     font-family: inherit;
     cursor: pointer;
-    display: flex;
+    
+    /* ADDED: Forces the button to act as a proper inline-flex block matching the other rows */
+    display: inline-flex;  
     align-items: center;
+    
+    /* ADDED: Locks the content directly to the right margin wall */
+    justify-content: flex-end; 
+    text-align: right;
+    
+    /* ADDED: Forces full width usage within the parent block to prevent text drift */
+    width: 100%;               
     gap: 0.5rem;
     transition: color 0.15s ease;
-    text-align: right;
-    justify-content: flex-end;
 }
 
 .btn-copy-email:hover {
