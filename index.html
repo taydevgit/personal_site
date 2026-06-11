@@ -16,42 +16,54 @@
     </div>
 
     <div class="header-right">
-        <span class="location">
-            <i class="fa-solid fa-earth-americas"></i> Conroe, Texas
-        </span>
-        <a href="mailto:rodgers.taylor.n@gmail.com">
-            <i class="fa-solid fa-envelope"></i> rodgers.taylor.n@gmail.com
-        </a>
-        <a href="tel:+19363202728">
-            <i class="fa-solid fa-phone"></i> (936)-320-2728
-        </a>
-    </div>
+    <span class="location">
+        Conroe, Texas <i class="fa-solid fa-earth-americas"></i>
+    </span>
+    <span class="clearance-level">
+        TS/SCI, CI Polygraph <i class="fa-solid fa-key"></i>
+    </span>
+    <span class="education-level">
+        B.S. Computer Science <i class="fa-solid fa-graduation-cap"></i>
+    </span>
+    <button class="btn-copy-email" onclick="copyEmailToClipboard()" id="email-button">
+        <span id="email-text">rodgers.taylor.n@gmail.com</span>
+        <i class="fa-solid fa-envelope"></i> 
+    </button>
+    <a href="tel:+19363202728">
+        (936)-320-2728 <i class="fa-solid fa-phone"></i>
+    </a>
+</div>
 </header>
 
 <main class="main-content-container">
     
+    <!-- Row 1: NIWC PAC -->
     <div class="resume-row">
         <div class="row-timeline-track">
             <div class="track-line"></div>
             <div class="card-date">
                 <span>Mar 2025</span>
-                <span>Mar 2024 -</span>
+                <span>Mar 2024</span>
             </div>
         </div>
         <article class="job-card" onclick="document.getElementById('job-modal-1').showModal()">
             <div class="job-card-header">
-                <h2>Subsidium / NIWC Pacific</h2>
+                <h2>Subsidium</h2>
                 <h3>Regional Tier IV Engineer - Europe</h3>
+                <h3 class="job-card-agency">Naval Information Warfare Center (NIWC) Pacific</h3>
                 <span class="job-card-location">Naples, Italy</span>
             </div>
             <div class="job-card-skills">
-                <span class="skill-pill">Tier IV Support</span>
-                <span class="skill-pill">Change Management</span>
-                <span class="skill-pill">RFC Boards</span>
-            </div>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Tier IV Support</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Leadership Interfacing</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> VMWare Virtualization</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Site RFC Coordination</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Change Management</span>
+</div>
         </article>
     </div>
 
+    <!-- Row 2: Dynetics -->
     <div class="resume-row">
         <div class="row-timeline-track">
             <div class="track-line"></div>
@@ -62,18 +74,22 @@
         </div>
         <article class="job-card" onclick="document.getElementById('job-modal-2').showModal()">
             <div class="job-card-header">
-                <h2>Dynetics (Leidos)</h2>
+                <h2>Dynetics</h2>
                 <h3>Senior Systems Engineer</h3>
+                <h3 class="job-card-agency">Leidos SCIF Service</h3>
                 <span class="job-card-location">Huntsville, AL</span>
             </div>
             <div class="job-card-skills">
-                <span class="skill-pill">System Hardening</span>
-                <span class="skill-pill">Cisco ISE</span>
-                <span class="skill-pill">Suite Automation</span>
-            </div>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Storage Administration</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> STIG Compliance</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Application Deployment</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Dell iDrac Administration</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> New System Architecture</span>
+</div>
         </article>
     </div>
 
+    <!-- Row 3: Lockheed Martin -->
     <div class="resume-row">
         <div class="row-timeline-track">
             <div class="track-line"></div>
@@ -84,18 +100,22 @@
         </div>
         <article class="job-card" onclick="document.getElementById('job-modal-3').showModal()">
             <div class="job-card-header">
-                <h2>Lockheed Martin</h2>
+                <h2>Apex Systems</h2>
                 <h3>Software Integrator (C2BMC)</h3>
+                <h3 class="job-card-agency">Command, Control, Battle Management, and Communications (C2BMC) Program </h3>
                 <span class="job-card-location">Huntsville, AL</span>
             </div>
             <div class="job-card-skills">
-                <span class="skill-pill">VMware Environment</span>
-                <span class="skill-pill">vRealize Operations</span>
-                <span class="skill-pill">HPE ILO / iDRAC</span>
-            </div>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Software Integration</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Splunk Administration</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> YAML Deployments</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> NetApp Storage Administration</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> HPE iLO Administration</span>
+</div>
         </article>
     </div>
 
+    <!-- Row 4: NGA -->
     <div class="resume-row">
         <div class="row-timeline-track">
             <div class="track-line"></div>
@@ -106,18 +126,22 @@
         </div>
         <article class="job-card" onclick="document.getElementById('job-modal-4').showModal()">
             <div class="job-card-header">
-                <h2>National Geospatial-Intelligence Agency</h2>
+                <h2>Innovative Data Solutions</h2>
                 <h3>Virtual Infrastructure Engineer</h3>
+                <h3 class="job-card-agency">National Geospatial-Intelligence Agency</h3>
                 <span class="job-card-location">Arnold, MO</span>
             </div>
             <div class="job-card-skills">
-                <span class="skill-pill">ESXi Hosts</span>
-                <span class="skill-pill">STIG Compliance</span>
-                <span class="skill-pill">vRealize Automation</span>
-            </div>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Tier III Support</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Active Directory Policy Administration</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> PowerCLI Automation</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> VMWare VRealize Cloud</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Dell iDrac Administration</span>
+</div>
         </article>
     </div>
 
+    <!-- Row 5: NCTS Far East -->
     <div class="resume-row">
         <div class="row-timeline-track">
             <div class="track-line"></div>
@@ -130,16 +154,20 @@
             <div class="job-card-header">
                 <h2>NCTS Far East</h2>
                 <h3>VMware Administrator (ONE-Net)</h3>
+                <h3 class="job-card-agency"> United States Navy Seventh Fleet </h3>
                 <span class="job-card-location">Yokosuka, Japan</span>
-            </div>
+            </div>  
             <div class="job-card-skills">
-                <span class="skill-pill">SQL Database</span>
-                <span class="skill-pill">PowerShell / C#</span>
-                <span class="skill-pill">Splunk & Veeam</span>
-            </div>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> ONE-Net Administration</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Powershell Automation</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> STIG Compliance</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Windows Administration</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> VMWare Virtualization</span>
+</div>
         </article>
     </div>
 
+    <!-- Row 6: SUSLAK -->
     <div class="resume-row">
         <div class="row-timeline-track">
             <div class="track-line"></div>
@@ -152,16 +180,20 @@
             <div class="job-card-header">
                 <h2>SUSLAK</h2>
                 <h3>Deputy Chief, User Facing Services</h3>
+                <h3 class="job-card-agency">United States 8th Army</h3>
                 <span class="job-card-location">Seoul, Korea</span>
             </div>
             <div class="job-card-skills">
-                <span class="skill-pill">Joint-Personnel Leadership</span>
-                <span class="skill-pill">SIGINT Equipment</span>
-                <span class="skill-pill">Hardware Refresh</span>
-            </div>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Helpdesk Supervisor</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Change Management</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Personnel Coordination</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Powershell Automation</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Systems Governance</span>
+</div>
         </article>
     </div>
 
+    <!-- Row 7: USS Mustin -->
     <div class="resume-row">
         <div class="row-timeline-track">
             <div class="track-line"></div>
@@ -174,23 +206,27 @@
             <div class="job-card-header">
                 <h2>USS Mustin (DDG-89)</h2>
                 <h3>Communications Watch Officer</h3>
+                <h3 class="job-card-agency"> Destroyer Squadron 15 </h3>
                 <span class="job-card-location">Yokosuka, Japan</span>
             </div>
             <div class="job-card-skills">
-                <span class="skill-pill">IT21 Environments</span>
-                <span class="skill-pill">CANES 1.2</span>
-                <span class="skill-pill">ADNS Administration</span>
-            </div>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> RF Systems</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> ADNS Routing</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> VMWare Virtualization</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> CANES/COMPOSE</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Powershell Automation</span>
+</div>
         </article>
     </div>
 
 </main>
 
+<!-- Experience Modals -->
 <dialog id="job-modal-1" class="full-screen-job-modal">
     <div class="modal-wrapper">
         <button class="btn-close-modal" onclick="this.closest('dialog').close()">✕</button>
         <header class="modal-header">
-            <h1>Subsidium / NIWC Pacific</h1>
+            <h1 autofocus tabindex="-1" style="outline: none;">Subsidium / NIWC Pacific</h1>
             <h2>Regional Tier IV Engineer - Europe — <span class="accent-orange">Mar 2024 - Mar 2025</span></h2>
         </header>
         <div class="modal-body-content">
@@ -209,7 +245,7 @@
     <div class="modal-wrapper">
         <button class="btn-close-modal" onclick="this.closest('dialog').close()">✕</button>
         <header class="modal-header">
-            <h1>Dynetics, a Leidos Company</h1>
+            <h1 autofocus tabindex="-1" style="outline: none;">Dynetics, a Leidos Company</h1>
             <h2>Senior Systems Engineer — <span class="accent-orange">Apr 2023 - Jun 2024</span></h2>
         </header>
         <div class="modal-body-content">
@@ -247,7 +283,7 @@
     <div class="modal-wrapper">
         <button class="btn-close-modal" onclick="this.closest('dialog').close()">✕</button>
         <header class="modal-header">
-            <h1>National Geospatial-Intelligence Agency</h1>
+            <h1 autofocus tabindex="-1" style="outline: none;">National Geospatial-Intelligence Agency</h1>
             <h2>Virtual Infrastructure Engineer — <span class="accent-orange">Nov 2020 - Jun 2022</span></h2>
         </header>
         <div class="modal-body-content">
@@ -267,7 +303,7 @@
     <div class="modal-wrapper">
         <button class="btn-close-modal" onclick="this.closest('dialog').close()">✕</button>
         <header class="modal-header">
-            <h1>NCTS Far East (ONE-Net)</h1>
+            <h1 autofocus tabindex="-1" style="outline: none;">NCTS Far East (ONE-Net)</h1>
             <h2>VMware Administrator — <span class="accent-orange">Jan 2019 - Nov 2020</span></h2>
         </header>
         <div class="modal-body-content">
@@ -286,7 +322,7 @@
     <div class="modal-wrapper">
         <button class="btn-close-modal" onclick="this.closest('dialog').close()">✕</button>
         <header class="modal-header">
-            <h1>SUSLAK (Seoul, Korea)</h1>
+            <h1 autofocus tabindex="-1" style="outline: none;">SUSLAK (Seoul, Korea)</h1>
             <h2>Deputy Chief, User Facing Services — <span class="accent-orange">Nov 2017 - Jan 2019</span></h2>
         </header>
         <div class="modal-body-content">
@@ -305,7 +341,7 @@
     <div class="modal-wrapper">
         <button class="btn-close-modal" onclick="this.closest('dialog').close()">✕</button>
         <header class="modal-header">
-            <h1>USS Mustin (DDG-89)</h1>
+            <h1 autofocus tabindex="-1" style="outline: none;">USS Mustin (DDG-89)</h1>
             <h2>Communications Watch Officer — <span class="accent-orange">Oct 2013 - Nov 2017</span></h2>
         </header>
         <div class="modal-body-content">
@@ -322,13 +358,13 @@
 
 <footer class="bottom-action-bar">
     <div class="footer-links">
-        <a href="https://www.clearancejobs.com" target="https://www.clearancejobs.com/" rel="noopener noreferrer">
+        <a href="https://www.clearancejobs.com/" target="_blank" rel="noopener noreferrer">
             <i class="fa-solid fa-user-shield"></i> ClearanceJobs
         </a>
-        <a href="https://github.com" target="https://github.com/taydevgit" rel="noopener noreferrer">
+        <a href="https://github.com/taydevgit" target="_blank" rel="noopener noreferrer">
             <i class="fa-brands fa-github"></i> GitHub
         </a>
-        <a href="https://linkedin.com" target="https://linkedin.com/in/rodgerstn" rel="noopener noreferrer">
+        <a href="https://linkedin.com/in/rodgerstn" target="_blank" rel="noopener noreferrer">
             <i class="fa-brands fa-linkedin"></i> LinkedIn
         </a>
     </div>
@@ -336,6 +372,32 @@
         <a href="resume.pdf" class="btn-download-footer" download>Download Resume</a>
     </div>
 </footer>
+
+<script>
+let isCopying = false;
+function copyEmailToClipboard() {
+    if (isCopying) return;
+    isCopying = true;
+    
+    const emailAddress = "rodgers.taylor.n@gmail.com";
+    const button = document.getElementById("email-button");
+    const textContainer = document.getElementById("email-text");
+    
+    navigator.clipboard.writeText(emailAddress).then(() => {
+        textContainer.innerHTML = `<span class="copied-status">Copied!</span> ${emailAddress}`;
+        button.classList.add("pulse-active");
+        
+        setTimeout(() => {
+            textContainer.textContent = emailAddress;
+            button.classList.remove("pulse-active");
+            isCopying = false;
+        }, 2000);
+    }).catch(err => {
+        console.error("Clipboard write failed: ", err);
+        isCopying = false;
+    });
+}
+</script>
 
 </body>
 </html>

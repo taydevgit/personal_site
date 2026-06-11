@@ -1,145 +1,156 @@
 /* ==========================================================================
-   Global Reset & Page Box Rules
+   1. GLOBAL VARIABLES & BASE BACKGROUND SETUP
    ========================================================================== */
-*, *::before, *::after {
-    box-sizing: border-box; 
+body {
+    background-image: url("trees.jpg");
+    background-attachment: fixed; 
+    background-position: center;  
+    background-repeat: no-repeat; 
+    background-size: cover;       
+
+    background-color: #121212;    
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     margin: 0;
     padding: 0;
-}
-
-body {
-    /* File Directory Path Linking */
-    background-image: url("monochrome_clouds.jpg");
-    
-    /* Box Mechanics: Lock the image layout tightly to the viewport */
-    background-attachment: fixed; /* Freezes the image in place so content scrolls over it */
-    background-position: center;  /* Centers the image asset mathematically on the axis */
-    background-repeat: no-repeat; /* Prevents the image from duplicating/tiling awkwardly */
-    background-size: cover;       /* Dynamically stretches or shrinks the image to fill 100% of the screen width and height without distortion */
-
-    /* Core typography and baseline configurations */
-    background-color: #121212;    /* Fallback color while the image asset loads */
-    color: #e0e0e0;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    margin: 0;
+    line-height: 1.6;
 }
 
 /* ==========================================================================
-   Header Layout & Interaction States
+   2. HEADER ARCHITECTURE
    ========================================================================== */
 .site-header {
-    display: flex;                  
-    justify-content: space-between; 
-    align-items: center;            
-    padding: 1rem 2rem;             
-    background-color: #1a1a1a;      
-    border-bottom: 1px solid #2d2d2d; 
-}
-
-.header-left {
-    margin: 0;                      
-    font-weight: 600;
-    text-transform: uppercase; 
-    letter-spacing: 1px;       
-    line-height: 1.0;          
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem 1rem 2rem;
+    border-bottom: 1px solid #2d2d2d;
 }
 
 .my-name {
-    font-size: 2.5rem;        
-    font-weight: 800;        
-    color: #ffffff;         
-    margin: 0;              
-    margin-bottom: 0.2rem;   
+    font-size: 3.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 0.1rem 0; 
+    letter-spacing: -0.04em; 
+    line-height: 1.1;
 }
 
 .job-title {
-    font-size: 1rem;     
-    font-weight: 400;      
-    color: #e0e0e0;       
-    line-height: 1.2;      
-    margin: 0;            
+    font-size: 1.35rem;
+    color: #d35400;
+    margin: 0;
+    font-family: monospace;
+    font-weight: 700;
+    letter-spacing: 0.02em;
 }
 
 .header-right {
     display: flex;
-    flex-direction: column;         
-    align-items: flex-end;          
-    gap: 0.5rem;                    
-}
-
-.header-right .location {
-    color: #e0e0e0;                 
-    font-size: 1rem;
-    display: inline-flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
     gap: 0.5rem;
 }
 
-.header-right a {
-    color: #e0e0e0;                 
-    font-size: 1rem;
+.header-right a, .location, .clearance-level, .education-level {
+    color: #a0a0a0;
     text-decoration: none;
-    transition: color 0.15s ease, text-shadow 0.15s ease;
-    display: inline-flex;
+    font-size: 1rem;
+    display: inline-flex;  
     align-items: center;
-    gap: 0.5rem;
+    justify-content: flex-end; /* NEW: Aligns the inner content to the right edge */
+    text-align: right;         /* NEW: Right-aligns the text nodes */
+    gap: 0.5rem;           
+    transition: color 0.15s ease;
+    width: 100%;
 }
 
-.header-right i {
-    transition: color 0.15s ease, text-shadow 0.15s ease;
+/* Adjust the icon margins since they are now on the right side */
+.clearance-level i, .education-level i, .location i, .header-right a i, .btn-copy-email i {
+    font-size: 0.95rem;
+    width: 16px;           
+    text-align: center;
+    margin-left: 0.1rem;       /* NEW: Adds subtle breathing room between text end and icon start */
 }
 
 .header-right a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 8px rgba(211, 84, 0, 0.8), 
-                 0 0 20px rgba(211, 84, 0, 0.4);
+    color: #d35400;
 }
 
-.header-right a:hover i {
+/* Inline Email Copy Button */
+.btn-copy-email {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #a0a0a0;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.15s ease;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.btn-copy-email:hover {
     color: #d35400;
-    text-shadow: 0 0 8px rgba(211, 84, 0, 0.9),
-                 0 0 20px rgba(211, 84, 0, 0.5);
+}
+
+.copied-status {
+    color: #d35400;
+    font-weight: 700;
+    font-family: monospace;
+    margin-right: 0.25rem;
+    animation: fadeReveal 0.2s ease forwards;
+}
+
+.pulse-active {
+    animation: textPulse 2s ease infinite;
 }
 
 /* ==========================================================================
-   Main Content Vertical Stack Layout
+   3. MAIN CONTENT LAYOUT ARCHITECTURE
    ========================================================================== */
 .main-content-container {
     display: flex;
     flex-direction: column;     
     width: 100%;
-    max-width: 950px;
+    max-width: 1100px; 
     margin: 0 auto;
     padding: 4rem 2rem 8rem 2rem; 
-    /* CHANGED: Add the 2rem spacing here instead of between the inner cards */
-    gap: 2rem;                     
+    gap: 2rem; 
 }
 
 .resume-row {
     display: flex;
-    flex-direction: row;        
+    flex-direction: row;
+    align-items: center;
     width: 100%;
+    position: relative;
 }
 
-/* Left Track Space Container */
+/* ==========================================================================
+   4. TIMELINE TRACK ELEMENTS
+   ========================================================================== */
 .row-timeline-track {
     width: 110px;               
     position: relative;         
     flex-shrink: 0;
     margin-right: 2rem;         
-    
-    /* NEW: Forces all child elements to center vertically inside the track height */
     display: flex;
     flex-direction: column;
     justify-content: center;    
     align-items: flex-start;    
+    align-self: stretch;
 }
 
-/* The structural track line segment remains anchored to the left */
 .track-line {
     position: absolute;
     left: 0;
-    /* CHANGED: Extends the line upward and downward to seamlessly bridge the 2rem row gaps */
     top: -1rem;
     bottom: -1rem;
     width: 4px;
@@ -147,85 +158,48 @@ body {
     transition: background-color 0.25s ease;
 }
 
-/* NEW: Combined Date Layout Block */
-/* Combined Date Layout Block Wrapper */
 .card-date {
     display: flex;
     flex-direction: column;     
     gap: 0.2rem;                
     margin: 0;                  
     padding-left: 20px;         
-    
     font-family: monospace;
     font-size: 1rem;
     font-weight: 700;
     color: #d35400;             
     white-space: nowrap;
-    
     opacity: 0;                 
     transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
                 transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     transform: scale(0.9);      
 }
 
-/* ==========================================================================
-   Strict Date and Transition Arrow Layout
-   ========================================================================== */
+.card-date span:nth-child(2) { order: 3; }
+.card-date span:nth-child(1) { order: 1; }
 
-/* Target the first line in HTML (Older Start Date) */
-.card-date span:nth-child(2) {
-    order: 3;                   /* Push to the very bottom position */
-}
-
-/* Target the second line in HTML (Newer End Date) */
-.card-date span:nth-child(1) {
-    order: 1;                   /* Keep at the very top position */
-}
-
-/* Position the generated arrow perfectly between the two dates */
 .card-date::after {
     content: "▲";               
     display: block;
-    order: 2;                   /* Lock right into the middle slot */
+    order: 2;                   
     text-align: center;         
     font-size: 0.7rem;         
     color: #d35400;             
-    margin: 0.1rem 0;           /* Balanced top and bottom margin spacing for the transition look */
+    margin: 0.1rem 0;           
     line-height: 1;
 }
 
-/* Absolute vertical alignments matching top/bottom limits of the card */
-.date-start {
-    top: 2rem;                  
-    transform: translateY(-50%) scale(0.9);
-}
-
-.date-end {
-    bottom: 2rem;               
-    transform: translateY(50%) scale(0.9);
-}
-
-/* ==========================================================================
-   Cross-Box Interaction Styling (Hover Effects)
-   ========================================================================== */
 .resume-row:hover .track-line {
     background-color: #d35400;  
 }
 
 .resume-row:hover .card-date {
     opacity: 1;                 
-    transform: scale(1.05);     /* Smoothly scales the entire block up when revealed */
-}
-.resume-row:hover .date-start {
-    transform: translateY(-50%) scale(1.15); 
-}
-
-.resume-row:hover .date-end {
-    transform: translateY(50%) scale(1.15); 
+    transform: scale(1);     
 }
 
 /* ==========================================================================
-   Job Cards Portfolio Component
+   5. JOB CARDS COMPONENT
    ========================================================================== */
 .job-card {
     background-color: #1a1a1a;
@@ -234,8 +208,12 @@ body {
     padding: 2rem;
     cursor: pointer;
     transition: border-color 0.15s ease, transform 0.15s ease;
-    /* REMOVED: margin-bottom: 2rem; */
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
 }
 
 .job-card:hover {
@@ -243,291 +221,294 @@ body {
     transform: translateY(-2px);
 }
 
+.job-card-header {
+    flex: 1;
+}
+
 .job-card-header h2 {
     font-size: 1.6rem;
     color: #ffffff;
-    margin-bottom: 0.25rem;
+    margin: 0 0 0.25rem 0;
 }
 
 .job-card-header h3 {
     font-size: 1.1rem;
     color: #a0a0a0;
     font-weight: 500;
-    margin-bottom: 0.25rem;
+    margin: 0 0 0.25rem 0;
+}
+
+.job-card-header h3.job-card-agency {
+    color: #d35400;             
+    font-size: 1rem;            
+    font-weight: 700;           
+    margin: 0 0 0.25rem 0;      
+    letter-spacing: 0.03em;
 }
 
 .job-card-location {
     display: block;
     font-size: 0.9rem;
     color: #666666;
-    margin-bottom: 1.5rem;
-}
-
-.job-card-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.skill-pill {
-    background-color: #2d2d2d;
-    color: #e0e0e0;
-    padding: 0.3rem 0.75rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-family: monospace;
 }
 
 /* ==========================================================================
-   Full-Screen Native Modal Structure
+   6. CLEAN INLINE SKILL LAYOUT
+   ========================================================================== */
+.job-card-skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;       
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.75rem 1.2rem;   
+    padding: 0.5rem 0;
+    max-width: 500px;      
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.skill-pill {
+    display: inline-flex;
+    align-items: center;
+    background: none;      
+    color: #e0e0e0;
+    font-family: monospace;
+    font-size: 0.85rem;    
+    font-weight: 700;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+}
+
+.skill-pill i {
+    color: #d35400;        
+    font-size: 0.75rem;    
+    margin-right: 0.4rem;  
+}
+
+/* ==========================================================================
+   7. FULL-SCREEN EXPERIENCE MODALS
    ========================================================================== */
 .full-screen-job-modal {
+    background-color: rgba(18, 18, 18, 0.98);
+    border: none;
     width: 100vw;
     height: 100vh;
     max-width: 100vw;
     max-height: 100vh;
-    background-color: #121212; 
-    color: #e0e0e0;
-    border: none;
+    margin: 0;
     padding: 0;
+    color: #e0e0e0;
 }
 
-.full-screen-job-modal::backdrop {
-    background-color: rgba(18, 18, 18, 0.98); 
+.full-screen-job-modal:focus {
+    outline: none;
 }
 
 .modal-wrapper {
     max-width: 800px;
     margin: 0 auto;
     padding: 6rem 2rem;
-    position: relative; 
+    position: relative;
 }
 
-/* Minimalist Close Control Button */
 .btn-close-modal {
     position: absolute;
     top: 3rem;
     right: 2rem;
-    
-    /* Stripping structural box styles */
-    background: none;           /* Removes the solid dark background tile */
-    border: none;               /* Eliminates the 1px solid border outline entirely */
-    padding: 0;                 /* Drops padding box bounds so only the character sits here */
-    
-    /* Typography adjustments for the raw X shape */
+    background: none;
+    border: none;
+    padding: 0;
     color: #a0a0a0;
     cursor: pointer;
-    font-size: 1.8rem;          /* Scales up the character size to remain an easy target */
-    font-weight: 300;           /* Clean, thin character weight */
+    font-size: 1.8rem;
+    font-weight: 300;
     line-height: 1;
-    
     transition: color 0.15s ease, text-shadow 0.15s ease;
 }
 
-/* Interaction state: Hovering over the standalone X shape */
+.btn-close-modal:focus {
+    outline: none;
+    caret-color: transparent;
+}
+
 .btn-close-modal:hover {
-    color: #ffffff;
-    border: none;               /* Explicitly keeps border dead during active states */
-    background: none;           /* Explicitly keeps background clear during active states */
-    
-    /* Applies the identical dark orange illumination profile from the rest of the site */
-    text-shadow: 0 0 8px rgba(211, 84, 0, 0.8), 
-                 0 0 20px rgba(211, 84, 0, 0.4);
+    color: #d35400;
+    text-shadow: 0 0 8px rgba(211, 84, 0, 0.8), 0 0 20px rgba(211, 84, 0, 0.4);
 }
 
 .modal-header h1 {
     font-size: 2.5rem;
     color: #ffffff;
-    margin-bottom: 0.5rem;
+    margin: 0 0 0.5rem 0;
 }
 
 .modal-header h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #a0a0a0;
-    font-weight: 500;
-    margin-bottom: 2rem;
+    font-weight: 400;
+    margin: 0 0 3rem 0;
 }
 
 .accent-orange {
     color: #d35400;
+    font-family: monospace;
+    font-weight: 700;
 }
 
 .modal-body-content h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #ffffff;
-    margin-bottom: 1rem;
     border-bottom: 1px solid #2d2d2d;
     padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .modal-body-content ul {
-    list-style: none; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .modal-body-content li {
     position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 1rem;
-    line-height: 1.6;
-    color: #c0c0c0;
+    padding-left: 2rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+    color: #b0b0b0;
 }
 
-/* Custom asset bullet design using local SVG file */
 .modal-body-content li::before {
-    content: "";                /* Clear out the old "↳" text string completely */
+    content: "";                
     position: absolute;
     left: 0;
-    top: 0.3rem;                /* Adjusts vertical alignment to match line-height centers */
-    
-    /* Box Mechanics: Set explicit dimensions for the SVG asset */
+    top: 0.35rem;                
     width: 14px;                
     height: 14px;
-    
-    /* File Directory Path Linking */
-    background-image: url("code-simple1.svg");
+    background-image: url("code-simple2.svg");
     background-repeat: no-repeat;
-    background-size: contain;   /* Scales the SVG vector asset cleanly inside the 14x14px box */
+    background-size: contain;   
     background-position: center;
 }
 
 /* ==========================================================================
-   Fixed Bottom Bar Layout
+   8. FOOTER ACTION SPACE
    ========================================================================== */
 .bottom-action-bar {
-    position: fixed;            
-    bottom: 0;                  
-    left: 0;                    
-    width: 100%;                
-    height: 60px;               
-    display: flex;              
-    justify-content: space-between; 
-    align-items: center;        
-    padding: 0 2rem;
-    background-color: #1a1a1a;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
     border-top: 1px solid #2d2d2d;
-    z-index: 999;               
 }
 
 .footer-links {
     display: flex;
-    gap: 1.5rem;                
+    gap: 2rem;
 }
 
 .footer-links a {
-    color: #e0e0e0;
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-decoration: none;      
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     transition: color 0.15s ease;
-    display: inline-flex;       
-    align-items: center;        
-    gap: 0.5rem;                
 }
 
 .footer-links a:hover {
-    color: #ffffff;             
-    text-shadow: 0 0 8px rgba(211, 84, 0, 0.8), 
-                 0 0 20px rgba(211, 84, 0, 0.4);
-}
-
-.footer-links a:hover i {
-    color: #d35400;             
-    text-shadow: 0 0 8px rgba(211, 84, 0, 0.9),
-                 0 0 20px rgba(211, 84, 0, 0.5);
+    color: #d35400;
 }
 
 .btn-download-footer {
-    display: inline-block;
-    padding: 0.5rem 1.2rem;       
-    background-color: #d35400;   
-    color: #ffffff;              
-    border-radius: 6px;          
+    background-color: #d35400;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-family: monospace;
+    font-weight: 700;
     font-size: 0.9rem;
-    font-weight: 700;              
-    letter-spacing: 0.5px;
-    text-decoration: none;       
-    transition: background-color 0.15s ease; 
+    transition: background-color 0.15s ease, transform 0.15s ease;
 }
 
 .btn-download-footer:hover {
-    background-color: #e67e22;   
-    color: #ffffff;              
-    box-shadow: 0 0 12px rgba(230, 126, 34, 0.6),
-                0 0 25px rgba(230, 126, 34, 0.3);
+    background-color: #e67e22;
+    transform: translateY(-1px);
 }
 
 /* ==========================================================================
-   Responsive Media Queries (Mobile & Tablet Optimization)
+   9. KEYFRAME ANIMATIONS
    ========================================================================== */
+@keyframes fadeReveal {
+    from { opacity: 0; transform: translateX(-4px); }
+    to { opacity: 1; transform: translateX(0); }
+}
 
+@keyframes textPulse {
+    0% { color: #a0a0a0; }
+    25% { color: #d35400; text-shadow: 0 0 8px rgba(211, 84, 0, 0.5); }
+    50% { color: #ffffff; text-shadow: 0 0 12px rgba(255, 255, 255, 0.6); }
+    75% { color: #d35400; text-shadow: 0 0 8px rgba(211, 84, 0, 0.5); }
+    100% { color: #a0a0a0; }
+}
+
+/* ==========================================================================
+   10. RESPONSIVE MEDIA QUERIES (MOBILE OPTIMIZATION)
+   ========================================================================== */
 @media screen and (max-width: 768px) {
-    
-    /* 1. Add breathing room to the main wrapper */
-    .main-content-container {
-        padding: 2rem 1rem 6rem 1rem;
-        gap: 1.5rem;
+    .main-content-container { 
+        padding: 2rem 1rem 6rem 1rem; 
+        gap: 1.5rem; 
     }
-
-    /* 2. Convert the horizontal row into a vertical stack */
-    .resume-row {
+    .resume-row { 
         flex-direction: column; 
-        gap: 0.5rem;
+        gap: 0.5rem; 
     }
-
-    /* 3. Re-purpose the timeline track space */
-    .row-timeline-track {
-        width: 100%;
-        height: auto;
-        margin-right: 0;
-        align-items: flex-start; /* Align elements to the left margin instead of center */
-        padding-left: 0;
+    .row-timeline-track { 
+        width: 100%; 
+        height: auto; 
+        margin-right: 0; 
+        align-items: flex-start; 
+        padding-left: 0; 
     }
-
-    /* 4. Hide the vertical line on mobile since items are stacked */
-    .track-line {
+    .track-line { 
         display: none; 
     }
-
-    /* 5. Force dates to be permanently visible on mobile (since hover states don't exist on touch screens) */
+    
     .card-date {
-        position: static;      /* Take it out of absolute floating space */
-        opacity: 1;            /* Make it completely visible */
-        transform: scale(1);   /* Reset scale factor */
+        position: static;
+        opacity: 1;
+        transform: scale(1);
         padding-left: 0;
-        flex-direction: row;   /* Put dates side-by-side on mobile for better space utilization */
+        flex-direction: row;
         gap: 0.5rem;
         font-size: 0.9rem;
         margin-bottom: 0.25rem;
     }
+    .card-date::after { content: "▼"; order: 2; margin: 0 0.2rem; }
+    .card-date span:nth-child(1) { order: 1; }
+    .card-date span:nth-child(2) { order: 3; }
 
-    /* 6. Adjust the arrow orientation to point down, indicating the card below it */
-    .card-date::after {
-        content: "▼";          
-        order: 2;              /* Place it cleanly between the two dates */
-        margin: 0 0.2rem;
+    .job-card { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        padding: 1.5rem; 
+        gap: 1.5rem; 
     }
     
-    /* Correct the text node orders to read chronologically left-to-right on mobile */
-    .card-date span:nth-child(1) { order: 1; } /* End date */
-    .card-date span:nth-child(2) { order: 3; } /* Start date */
-
-    /* 7. Allow the job card to take up full screen width */
-    .job-card {
-        padding: 1.5rem;
-        margin-bottom: 0;
+    .job-card-skills { 
+        align-self: flex-start; 
+        margin-top: 0.5rem; 
+        max-width: 100%;
     }
-
-    /* 8. Scale down header text so it doesn't wrap awkwardly */
-    .my-name {
-        font-size: 1.8rem;
-    }
-    .site-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-    .header-right {
-        align-items: flex-start;
-        width: 100%;
-    }
+    
+    .my-name { font-size: 1.8rem; }
+    .site-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .header-right { align-items: flex-start; width: 100%; }
+    .bottom-action-bar { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
 }
