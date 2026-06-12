@@ -66,7 +66,7 @@
     <span class="skill-pill"><i class="fa-solid fa-code"></i> Tier IV Support</span>
     <span class="skill-pill"><i class="fa-solid fa-code"></i> Leadership Interfacing</span>
     <span class="skill-pill"><i class="fa-solid fa-code"></i> VMWare Virtualization</span>
-    <span class="skill-pill"><i class="fa-solid fa-code"></i> Site RFC Coordination</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Site Outage Coordination</span>
     <span class="skill-pill"><i class="fa-solid fa-code"></i> Change Management</span>
 </div>
         </article>
@@ -447,21 +447,15 @@ function copyEmailToClipboard() {
 
 
 /** Resume Download Counter using CounterApe API 
- *  Link to check count: https://ape.counterapi.dev/taydev.ai/resume-clicks
+ *  Link to check count: https://api.counterapi.dev/v1/taydev.ai/resume-clicks
  **/
-document.getElementById("btn-download-resume").addEventListener("click", function() {
+document.getElementById('resume-download-btn').addEventListener('click', function() {
+    const url = 'https://api.counterapi.dev/v1/taydev.ai/resume-clicks/up';
     
-    const namespace = "https://taydev.ai";
-    const key = "resume-clicks";
-
-    fetch("https://api.counterapi.dev/v1/${namespace}/${key}/up")
-        .then(response => response.json())
-        .then(data => {
-            console.log("Resume download logged. Current count: ${data.count}");
-        })
-        .catch(error => {
-            console.error("Error logging resume download: ", error);
-        });
+    // sendBeacon sends a reliable, asynchronous POST request that survives page transitions
+    navigator.sendBeacon(url);
+    
+    console.log('Download metric dispatched.');
 });
 
 </script>
