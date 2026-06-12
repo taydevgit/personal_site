@@ -2,7 +2,7 @@
    1. GLOBAL VARIABLES & BASE BACKGROUND SETUP
    ========================================================================== */
 body {
-    background-image: url("trees.jpg");
+    background-image: url("images/trees.jpg");
     background-attachment: fixed; 
     background-position: center;  
     background-repeat: no-repeat; 
@@ -392,7 +392,7 @@ body {
     top: 0.35rem;                
     width: 14px;                
     height: 14px;
-    background-image: url("code-simple2.svg");
+    background-image: url("images/code-simple2.svg");
     background-repeat: no-repeat;
     background-size: contain;   
     background-position: center;
