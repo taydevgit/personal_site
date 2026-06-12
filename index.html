@@ -416,7 +416,7 @@
             <img src="images/vmware.png" alt="VMware Certified" class="cert-logo">
             <img src="images/microsoft.png" alt="Microsoft Windows Certified" class="cert-logo">
         </div>
-        <a href="files/resume.pdf" class="btn-download-footer" download>Download Resume</a>
+        <a href="files/resume.pdf" class="btn-download-footer" id="btn-download-resume" download>Download Resume</a>
     </div>
 </footer>
 
@@ -444,6 +444,26 @@ function copyEmailToClipboard() {
         isCopying = false;
     });
 }
+
+
+/** Resume Download Counter using CounterApe API 
+ *  Link to check count: https://ape.counterapi.dev/taydev.ai/resume-clicks
+ **/
+document.getElementById("btn-download-resume").addEventListener("click", function() {
+    
+    const namespace = "https://taydev.ai";
+    const key = "resume-clicks";
+
+    fetch("https://api.counterapi.dev/v1/${namespace}/${key}/up")
+        .then(response => response.json())
+        .then(data => {
+            console.log("Resume download logged. Current count: ${data.count}");
+        })
+        .catch(error => {
+            console.error("Error logging resume download: ", error);
+        });
+});
+
 </script>
 
 </body>
