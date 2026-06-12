@@ -446,17 +446,7 @@ function copyEmailToClipboard() {
 }
 
 
-/** Resume Download Counter using CounterApe API 
- *  Link to check count: https://api.counterapi.dev/v1/taydev.ai/resume-clicks
- **/
-document.getElementById('resume-download-btn').addEventListener('click', function() {
-    const url = 'https://api.counterapi.dev/v1/taydev.ai/resume-clicks/up';
-    
-    // sendBeacon sends a reliable, asynchronous POST request that survives page transitions
-    navigator.sendBeacon(url);
-    
-    console.log('Download metric dispatched.');
-});
+
 
 </script>
 
