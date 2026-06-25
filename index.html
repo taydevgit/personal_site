@@ -21,7 +21,7 @@
 <header class="site-header">
     <div class="header-left">
         <h1 class="my-name">Taylor Rodgers</h1>
-        <p class="job-title">NIWC PAC Regional Tier IV Engineer</p>
+        <p class="job-title">Freelance Full Stack Web Developer </p>
     </div>
 
     <div class="header-right">
@@ -45,7 +45,33 @@
 </header>
 
 <main class="main-content-container">
-    
+    <!-- Row 0. Current 1099 Employment-->
+    <div class="resume-row">
+        <div class="row-timeline-track">
+            <div class="track-line"></div>
+            <div class="card-date">
+                <span>Current</span>
+                <span>Apr 2026</span>
+            </div>
+        </div>
+        <article class="job-card" onclick="document.getElementById('job-modal-0').showModal()">
+            <div class="job-card-header">
+                <h2>tizzybrands LLC</h2>
+                <h3>Full Stack Web Developer</h3>
+                <h3 class="job-card-agency">Freelance 1099 Employee</h3>
+                <span class="job-card-location">Remote</span>
+            </div>
+            <div class="job-card-skills">
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> REACT</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> RESTful API development</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> MongoDB</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Git Version Control</span>
+    <span class="skill-pill"><i class="fa-solid fa-code"></i> Node.js Web Dev (HTML/CSS/JS/JSX) </span>
+</div>
+        </article>
+    </div>
+
+
     <!-- Row 1: NIWC PAC -->
     <div class="resume-row">
         <div class="row-timeline-track">
@@ -231,6 +257,28 @@
 </main>
 
 <!-- Experience Modals -->
+ <dialog id="job-modal-0" class="full-screen-job-modal">
+    <div class="modal-wrapper">
+        <button class="btn-close-modal" onclick="this.closest('dialog').close()">✕</button>
+        <header class="modal-header">
+            <h1 autofocus tabindex="-1" style="outline: none;">Tizzybrands LLC</h1>
+            <h2>Full stack web developer <span class="accent-orange"> Apr 2026 - Current </span></h2>
+        </header>
+        <div class="modal-body-content">
+            <h3>Full stack web developer responsible for building e-commerce website from the ground up.</h3>
+            <ul>
+                <li>Front end was built using React for components and website architecture. Claude code was used for workflow management. </li>
+                <li>Backend API implemented to communicate with front-end securely, OAuth 2.0 used for authentication, payment processing through PayPal and Stripe. </li>
+                <li>MongoDB implemented to store user data, persistent cart information, and product data. </li>
+                <li>Node.js local development used to build website before shipping. </li>
+                <li>Website hosted through cloudflare, used built-in cloudflare tools to monitor traffic and provide metrics to company owner. </li>
+                <li>Docker implemented to help any future employees setup local development environment. </li>
+                <li>Github used for version control and JIRA for tracking workflow and tasks. Github repo available on request to review. </li>
+            </ul>
+        </div>
+    </div>
+</dialog>
+
 <dialog id="job-modal-1" class="full-screen-job-modal">
     <div class="modal-wrapper">
         <button class="btn-close-modal" onclick="this.closest('dialog').close()">✕</button>
